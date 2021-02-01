@@ -1,15 +1,29 @@
-<!doctype html>
-<html>
-<head>
-  <title>Top Melons</title>
-  <link rel="stylesheet" type="text/css" href="/static/styles.css">
-</head>
-<body>
-  <!-- Create a div for every Most Loved Melon using a Jinja for-loop -->
-  <div class="melon-div">
-    <h3>Texas Golden Watermelon</h3>
-    <h2>Loved 598 times.</h2>
-    <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg">
+{% extends 'base.html' %}
+{% block title %}Just Melons{% endblock %}
+
+<link rel="stylesheet" href="/static/css/styles.css">
+
+{% block content %}
+
+  <div>
+    <h1 class="headings"><font color="#009933">Welcome, {{ (session['username']).title() }}.</font></h1>
   </div>
-</body>
-</html>
+  {# <!-- Create a div for every Most Loved Melon using a Jinja for-loop --> #}
+
+
+  <div>
+    <ul>
+      {% for melon in top_melons %}
+        <li><h3>{{ (session['username']).title() }}, this is a {{ top_melons[melon]['name'] }}</h3></li>
+        <li>It's been loved {{ top_melons[melon]['num_loves'] }} times!</li>
+
+        {# <!-- <li>Here's a picture –<br> <img class="top-melon-img" src=" {{ top_melons[melon]['img'] }}"> </li> --> #}
+        <div class="melon-div"><img class="top-melon-img" src="{{ top_melons[melon]['img'] }}"></div>
+
+      {% endfor %}
+    </ul>
+
+  </div>
+  
+
+  {% endblock %}

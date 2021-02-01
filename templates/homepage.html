@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Justice for Melons{% endblock %}
+
+<link rel="stylesheet" href="/static/css/styles.css">
+
+{% block content %}
+
+{# <!-- This is commented out after jinja-base-extended code added
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home of Top Melons</title>
+</head>
+<body> --> #}
+
+
+    <div class="centered">
+        <p class="headings">
+            <font color="#ff1a1a">UberMelon’s Most Loved Melons</font>
+        </p>  
+    </div>   
+
+    <div class="centered">
+        <img src='http://www.rareseeds.com/assets/1/14/DimRegular/Watermelon-Early-Moonbeam-WM197-web1.jpg'>
+    </div>
+    
+    <div class="centered">
+        <form action="/get-name">
+            Please enter your name: <input type="text" name="userinput" required>
+            <input type="submit" value="Thanks!">
+          </form>
+    </div>
+
+{# <!-- </body>
+</html> --> #}
+
+{% endblock %}
